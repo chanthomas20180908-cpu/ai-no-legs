@@ -1,0 +1,16 @@
+{
+  "site": {
+    "title": "ai-no-legs",
+    "slogan": "Stay curious, stay real"
+  },
+  "articles": [
+    {
+      "slug": "2024-06-23-digital-human-live",
+      "title": "数字人直播：卖铲子的人已经换了路虎",
+      "date": "2024-06-23",
+      "excerpt": "当所有人都在淘金的时候，真正赚到大钱的，往往是卖铲子的那些人。数字人直播赛道正在重演这一幕。",
+      "cover": "articles/2024-06-23-digital-human-live/cover.png",
+      "tags": ["AI", "直播", "商业观察"]
+    }
+  ]
+}

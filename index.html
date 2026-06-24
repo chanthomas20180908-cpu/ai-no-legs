@@ -31,7 +31,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* 纸张噪点纹理 */
     body::before {
       content: "";
       position: fixed;
@@ -42,13 +41,13 @@
     }
 
     .container {
-      max-width: 820px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 80px 24px 120px;
     }
 
     header {
-      margin-bottom: 80px;
+      margin-bottom: 72px;
       border-bottom: 1px solid var(--line);
       padding-bottom: 48px;
       animation: fadeInUp 0.8s ease-out both;
@@ -105,10 +104,10 @@
     .post-card {
       background: var(--card);
       border: 1px solid var(--line);
-      padding: 32px;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: flex;
+      overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       animation: fadeInUp 0.7s ease-out both;
     }
@@ -116,11 +115,38 @@
     .post-card:nth-child(1) { animation-delay: 0.2s; }
     .post-card:nth-child(2) { animation-delay: 0.3s; }
     .post-card:nth-child(3) { animation-delay: 0.4s; }
+    .post-card:nth-child(4) { animation-delay: 0.5s; }
+    .post-card:nth-child(5) { animation-delay: 0.6s; }
 
     .post-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(17, 17, 17, 0.08);
+      box-shadow: 0 20px 48px rgba(17, 17, 17, 0.1);
       border-color: var(--accent);
+    }
+
+    .post-cover {
+      flex: 0 0 280px;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .post-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .post-card:hover .post-cover img {
+      transform: scale(1.04);
+    }
+
+    .post-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .post-date {
@@ -128,15 +154,15 @@
       letter-spacing: 0.1em;
       color: var(--muted);
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-family: "Playfair Display", serif;
     }
 
     .post-title {
-      font-size: clamp(22px, 4vw, 28px);
+      font-size: clamp(20px, 3vw, 24px);
       font-weight: 700;
       line-height: 1.4;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       transition: color 0.3s ease;
     }
 
@@ -145,13 +171,30 @@
     }
 
     .post-excerpt {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--muted);
       line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .post-tag {
+      font-size: 11px;
+      color: var(--accent);
+      border: 1px solid var(--line);
+      padding: 3px 8px;
+      font-family: "Playfair Display", serif;
+      letter-spacing: 0.05em;
     }
 
     .post-arrow {
-      margin-top: 20px;
+      margin-top: auto;
+      padding-top: 16px;
       font-size: 13px;
       color: var(--accent);
       display: inline-flex;
@@ -168,6 +211,14 @@
 
     .post-card:hover .post-arrow::after {
       transform: translateX(6px);
+    }
+
+    .loading, .error {
+      text-align: center;
+      padding: 48px;
+      color: var(--muted);
+      font-style: italic;
+      border: 1px dashed var(--line);
     }
 
     footer {
@@ -191,7 +242,7 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .container {
         padding: 48px 20px 80px;
       }
@@ -200,6 +251,14 @@
         padding-bottom: 32px;
       }
       .post-card {
+        flex-direction: column;
+      }
+      .post-cover {
+        flex: none;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+      .post-body {
         padding: 24px;
       }
     }
@@ -214,15 +273,8 @@
 
     <main>
       <h2 class="section-label">Articles</h2>
-      <div class="post-list">
-        <a class="post-card" href="articles/数字人直播_卖铲子的人已经换了路虎/html/数字人直播_卖铲子的人已经换了路虎.html">
-          <div class="post-date">2024 · 06 · 23</div>
-          <h3 class="post-title">数字人直播：卖铲子的人已经换了路虎</h3>
-          <p class="post-excerpt">
-            当所有人都在淘金的时候，真正赚到大钱的，往往是卖铲子的那些人。数字人直播赛道正在重演这一幕。
-          </p>
-          <span class="post-arrow">Read article</span>
-        </a>
+      <div class="post-list" id="post-list">
+        <div class="loading">Loading articles…</div>
       </div>
     </main>
 
@@ -230,5 +282,50 @@
       <p>© ai-no-legs · Stay curious, stay real</p>
     </footer>
   </div>
+
+  <script>
+    function formatDate(dateStr) {
+      return dateStr.replace(/-/g, ' · ');
+    }
+
+    function renderArticles(articles) {
+      const list = document.getElementById('post-list');
+      if (!articles || articles.length === 0) {
+        list.innerHTML = '<div class="error">No articles found.</div>';
+        return;
+      }
+
+      list.innerHTML = articles.map((article, index) => `
+        <a class="post-card" href="articles/${article.slug}/" style="animation-delay: ${0.2 + index * 0.1}s">
+          <div class="post-cover">
+            <img src="${article.cover}" alt="${article.title}" loading="lazy">
+          </div>
+          <div class="post-body">
+            <div class="post-date">${formatDate(article.date)}</div>
+            <h3 class="post-title">${article.title}</h3>
+            <p class="post-excerpt">${article.excerpt}</p>
+            ${article.tags && article.tags.length ? `
+              <div class="post-tags">
+                ${article.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+              </div>
+            ` : ''}
+            <span class="post-arrow">Read article</span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    fetch('articles/manifest.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load manifest');
+        return response.json();
+      })
+      .then(data => renderArticles(data.articles))
+      .catch(error => {
+        document.getElementById('post-list').innerHTML = `
+          <div class="error">Unable to load articles: ${error.message}</div>
+        `;
+      });
+  </script>
 </body>
 </html>
