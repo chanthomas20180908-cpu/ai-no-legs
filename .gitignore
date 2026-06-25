@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local maintenance files and AI config (not uploaded to GitHub)
+scripts/
+docs/
+notes/
+CLAUDE.md
+AGENTS.md
+*.local
+
+# Logs
+*.log
+
+# Temporary files
+.tmp/
+temp/
