@@ -11,7 +11,9 @@ Thumbs.db
 
 # Local maintenance files and AI config (not uploaded to GitHub)
 scripts/
+draft/
 docs/
+tools/
 notes/
 CLAUDE.md
 AGENTS.md
