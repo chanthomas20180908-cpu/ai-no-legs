@@ -5,20 +5,28 @@
   },
   "articles": [
     {
-      "slug": "2026-03-26-avater-live-basic-analysis",
+      "slug": "2026-06-26-avater-live-basic-analysis",
       "title": "数字人直播：卖铲子的人已经换了路虎",
-      "date": "2026-03-26",
+      "date": "2026-06-26",
       "excerpt": "当所有人都在淘金的时候，真正赚到大钱的，往往是卖铲子的那些人。数字人直播赛道正在重演这一幕。",
-      "cover": "articles/2026-03-26-avater-live-basic-analysis/cover.png",
+      "cover": "articles/2026-06-26-avater-live-basic-analysis/cover.png",
       "tags": ["AI", "直播", "商业观察"]
     },
     {
-      "slug": "20260328-avater-live-product-analysis",
+      "slug": "2026-06-28-avater-live-product-analysis",
       "title": "我做的数字人直播产品，拉完了",
-      "date": "2026-03-28",
+      "date": "2026-06-28",
       "excerpt": "做 AI 产品，最怕把'能力'当成'需求'。数字人直播没有结束，结束的是'做个假主播就能发财'的叙事。",
-      "cover": "articles/20260328-avater-live-product-analysis/cover.png",
+      "cover": "articles/2026-06-28-avater-live-product-analysis/cover.png",
       "tags": ["AI", "数字人", "直播", "产品反思"]
+    },
+    {
+      "slug": "2026-06-29-stickerbox-product-analysis",
+      "title": "Stickerbox 教我老板做人",
+      "date": "2026-06-29",
+      "excerpt": "当很多人还在做 AI 硬件入口的春秋大梦时，Stickerbox 靠一个加了 AI 的贴纸打印机，已经把钱赚到了。",
+      "cover": "articles/2026-06-29-stickerbox-product-analysis/cover.png",
+      "tags": ["AI", "硬件", "产品分析", "商业观察"]
     }
   ]
 }
