@@ -27,6 +27,14 @@
       "excerpt": "当很多人还在做 AI 硬件入口的春秋大梦时，Stickerbox 靠一个加了 AI 的贴纸打印机，已经把钱赚到了。",
       "cover": "articles/2026-06-29-stickerbox-product-analysis/cover.png",
       "tags": ["AI", "硬件", "产品分析", "商业观察"]
+    },
+    {
+      "slug": "2026-06-30-openclaw-app-analysis",
+      "title": "OpenClaw 移动版来了，牛马终于可以随地大小班",
+      "date": "2026-06-30",
+      "excerpt": "OpenClaw 做的不只是把 Agent 搬上手机，而是把最后几个不能工作的场景也顺手消灭掉了。",
+      "cover": "articles/2026-06-30-openclaw-app-analysis/cover.png",
+      "tags": ["AI", "Agent", "产品分析", "移动端"]
     }
   ]
 }
