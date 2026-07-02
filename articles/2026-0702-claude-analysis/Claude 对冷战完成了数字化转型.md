@@ -1,6 +1,6 @@
 # 逆天 Claude 对冷战完成了数字化转型
 
-![20260702_cover.png](images/20260702_cover.png)
+![cover_new.png](images/cover_new.png)
 
 我以前不信一家 AI 公司能跟间谍似的。
 
@@ -148,9 +148,8 @@ AI 分了阵营，也总得有人在中间挣点辛苦钱。
 
 有的人，已经开始在旁边量梯子的尺寸。
 
-![20260702_bottom_001_border.png](images/20260702_bottom_001_border.png)
+![bottom_new.png](images/bottom_new.png)
 
 ---
 
 以上就是我个人的看法。谢谢你看完。
-
