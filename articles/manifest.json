@@ -35,6 +35,14 @@
       "excerpt": "OpenClaw 做的不只是把 Agent 搬上手机，而是把最后几个不能工作的场景也顺手消灭掉了。",
       "cover": "articles/2026-06-30-openclaw-app-analysis/cover.png",
       "tags": ["AI", "Agent", "产品分析", "移动端"]
+    },
+    {
+      "slug": "2026-0702-claude-analysis",
+      "title": "逆天 Claude 对冷战完成了数字化转型",
+      "date": "2026-07-02",
+      "excerpt": "当模型公司开始在代码里识别时区、检查代理、筛选企业所有权，冷战就被做成了软件逻辑。",
+      "cover": "articles/2026-0702-claude-analysis/cover.png",
+      "tags": ["AI", "Claude", "Anthropic", "商业观察"]
     }
   ]
 }
