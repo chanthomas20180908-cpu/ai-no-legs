@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-08-product-death",
+      "title": "我想知道那些 AI 公司是怎么死的",
+      "date": "2026-07-08",
+      "excerpt": "与其研究哪些 AI 公司活了下来，不如先看哪些已经死了。真正反复出现的死因，不是热闹的口号，而是账算不过来、位置太薄、对上游依赖过重。",
+      "cover": "articles/2026-07-08-product-death/images/cover_border.png",
+      "tags": ["AI", "商业观察", "公司死亡", "产品分析"]
+    },
+    {
       "slug": "2026-06-26-avater-live-basic-analysis",
       "title": "数字人直播：卖铲子的人已经换了路虎",
       "date": "2026-06-26",
