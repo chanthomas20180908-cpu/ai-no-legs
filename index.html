@@ -295,7 +295,9 @@
         return;
       }
 
-      list.innerHTML = articles.map((article, index) => `
+      const sortedArticles = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+
+      list.innerHTML = sortedArticles.map((article, index) => `
         <a class="post-card" href="articles/${article.slug}/" style="animation-delay: ${0.2 + index * 0.1}s">
           <div class="post-cover">
             <img src="${article.cover}" alt="${article.title}" loading="lazy">
