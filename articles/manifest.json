@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-09-ai-product-pricing",
+      "title": "AI 产品不只是卖月卡了",
+      "date": "2026-07-09",
+      "excerpt": "订阅没有失效，失效的是“订阅制是 AI 产品唯一被验证的盈利模式”这句话。AI 产品的收费结构正在重新组合，关键不是谁取代谁，而是谁能既不吓跑用户，也不把自己亏死。",
+      "cover": "articles/2026-07-09-ai-product-pricing/cover_border.png",
+      "tags": ["AI", "产品分析", "商业观察", "定价"]
+    },
+    {
       "slug": "2026-07-08-product-death",
       "title": "我想知道那些 AI 公司是怎么死的",
       "date": "2026-07-08",
