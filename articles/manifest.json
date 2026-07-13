@@ -5,11 +5,19 @@
   },
   "articles": [
     {
-      "slug": "20260710",
+      "slug": "2026-07-14-domestic-consumer-ai-analysis",
+      "title": "国内 C 端 AI：门庭若市，颗粒无收",
+      "date": "2026-07-14",
+      "excerpt": "调研 110 个 AI 产品后，国内娱乐类 AI 产品死亡率约 90% 到 95%。C 端 AI 想活下来，更现实的路只有三条：把公司做小、从第一天做全球市场、真正解决高价值问题。",
+      "cover": "articles/2026-07-14-domestic-consumer-ai-analysis/cover.png",
+      "tags": ["AI", "C 端", "创业", "商业观察"]
+    },
+    {
+      "slug": "2026-07-10-traditional-saas-ai-profitability",
       "title": "传统 SaaS 反而先靠 AI 赚钱了？",
       "date": "2026-07-10",
       "excerpt": "AI 塞进传统 SaaS，不必创造一个新世界：少填两张表、少回复几个重复问题，就可能写进报价单。但从发布会卖点走到利润表，中间还隔着一整条不便宜的交付链。",
-      "cover": "articles/20260710/cover.png",
+      "cover": "articles/2026-07-10-traditional-saas-ai-profitability/cover.png",
       "tags": ["AI", "SaaS", "商业观察", "产品分析"]
     },
     {
