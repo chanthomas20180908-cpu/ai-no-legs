@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-15-claude-code-cursor-analysis",
+      "title": "Claude Code早生一年，Cursor就得坐小孩桌？",
+      "date": "2026-07-15",
+      "excerpt": "Cursor 的早期优势来自模型能力有限时的工程护栏；Claude Code 则押注更强的模型与终端 Agent。模型会拆掉旧壁垒，应用公司只能不断往工作流与真实协作里搬家。",
+      "cover": "articles/2026-07-15-claude-code-cursor-analysis/cover.png",
+      "tags": ["AI", "Claude Code", "Cursor", "产品分析"]
+    },
+    {
       "slug": "2026-07-14-domestic-consumer-ai-analysis",
       "title": "国内 C 端 AI：门庭若市，颗粒无收",
       "date": "2026-07-14",
