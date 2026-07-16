@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-16-runway-world-model-analysis",
+      "title": "人类发明电影的那一天，Runway 输麻了",
+      "date": "2026-07-16",
+      "excerpt": "53 亿美元估值的 Runway，卖的或许不只是视频生成订阅，而是一张世界模型的看涨期权。会生成画面不等于理解世界，但资本已经先为那次物种跃迁买单。",
+      "cover": "articles/2026-07-16-runway-world-model-analysis/cover.png",
+      "tags": ["AI", "Runway", "世界模型", "商业观察"]
+    },
+    {
       "slug": "2026-07-15-claude-code-cursor-analysis",
       "title": "Claude Code早生一年，Cursor就得坐小孩桌？",
       "date": "2026-07-15",
