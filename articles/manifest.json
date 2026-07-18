@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-18-codex-chatgpt-work-analysis",
+      "title": "Codex用户突破500万，OpenAI却把独立App下线了",
+      "date": "2026-07-18",
+      "excerpt": "Codex 周活用户突破 500 万后，OpenAI 却将独立应用并入 ChatGPT，并拆分为 Chat、Work、Codex 三种模式。用户正在把 Coding Agent 用成通用 Agent，入口之争也随之升级。",
+      "cover": "articles/2026-07-18-codex-chatgpt-work-analysis/cover.png",
+      "tags": ["AI", "Codex", "ChatGPT", "产品分析"]
+    },
+    {
       "slug": "2026-07-16-runway-world-model-analysis",
       "title": "人类发明电影的那一天，Runway 输麻了",
       "date": "2026-07-16",
