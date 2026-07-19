@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-19-seedance-b2b-market-segmentation",
+      "title": "Seedance B 端分化，短剧买稳定，电商买产量",
+      "date": "2026-07-19",
+      "excerpt": "AI 视频的 B 端付费需求正在规模化，但短剧与影视团队买的是一致性和返工率，广告与电商团队买的是素材产量和测试密度。相同技术，付费驱动力并不相同。",
+      "cover": "articles/2026-07-19-seedance-b2b-market-segmentation/cover.png",
+      "tags": ["AI", "Seedance", "视频生成", "商业观察"]
+    },
+    {
       "slug": "2026-07-18-codex-chatgpt-work-analysis",
       "title": "Codex用户突破500万，OpenAI却把独立App下线了",
       "date": "2026-07-18",
