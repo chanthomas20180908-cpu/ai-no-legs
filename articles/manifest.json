@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-20-claude-code-confirmation-cost",
+      "title": "Claude code 多问一次确认，就少一块市场",
+      "date": "2026-07-20",
+      "excerpt": "Claude Code 和 Codex 的差别不只在模型能力：一次确认如何一路传导到 token 消耗、额度墙、用户体感与市场份额？",
+      "cover": "articles/2026-07-20-claude-code-confirmation-cost/cover.png",
+      "tags": ["AI", "Claude Code", "Codex", "产品分析"]
+    },
+    {
       "slug": "2026-07-19-seedance-b2b-market-segmentation",
       "title": "Seedance B 端分化，短剧买稳定，电商买产量",
       "date": "2026-07-19",
