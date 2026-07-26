@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-26-anthropic-dario-amodei-interview",
+      "title": "Anthropic CEO Dario Amodei 的 70 分钟访谈：权力、战争与 AI 风险",
+      "date": "2026-07-26",
+      "excerpt": "在 Dario Amodei 的 70 分钟访谈里，Anthropic 的企业路径、岗位冲击、军事红线和模型安全被放到同一张账本上。",
+      "cover": "articles/2026-07-26-anthropic-dario-amodei-interview/cover.png",
+      "tags": ["AI", "Anthropic", "Dario Amodei", "访谈解读"]
+    },
+    {
       "slug": "2026-07-21-ai-picture-book-independent-company",
       "title": "AI 绘本为什么独立公司做不成",
       "date": "2026-07-21",
