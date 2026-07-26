@@ -25,3 +25,4 @@ AGENTS.md
 # Temporary files
 .tmp/
 temp/
+.gstack/

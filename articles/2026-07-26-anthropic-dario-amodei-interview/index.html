@@ -5,22 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthropic CEO Dario Amodei 的 70 分钟访谈：权力、战争与 AI 风险</title>
     <style>
-        body { width: 100%; max-width: 1000px; margin: 0 auto; padding: 24px 32px 72px; background: #ffffff; color: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; line-height: 1.9; box-sizing: border-box; }
-        h1 { font-size: 2.4em; font-weight: 700; text-align: center; color: #1a1a1a; margin: 0.5em 0 1.1em; padding-bottom: 0.5em; border-bottom: 1px solid #e5e7eb; line-height: 1.45; }
-        h2 { margin: 2.2em 0 0.7em; font-size: 1.45em; line-height: 1.55; }
-        p { margin: 1em 0; }
-        strong { color: #a855f7; font-weight: 700; background: rgba(168, 85, 247, 0.08); padding: 1px 4px; border-radius: 4px; }
-        hr { border: none; border-top: 1px solid #e5e7eb; margin: 2.5em 0; }
-        img { display: block; max-width: 100%; border-radius: 8px; margin: 1.5em auto; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
-        blockquote { margin: 1.4em 0; padding: 0.2em 1.2em; border-left: 4px solid #a855f7; color: #3f3f46; background: #fafafa; }
-        blockquote p { margin: 0.8em 0; }
-        ul { padding-left: 1.5em; }
-        table { width: 100%; border-collapse: collapse; margin: 1.4em 0; font-size: 0.95em; }
-        th, td { padding: 0.7em; border: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
-        th { background: #fafafa; }
-        a { color: #7e22ce; }
-        ::selection { background: #a855f7; color: #ffffff; }
-        @media (max-width: 640px) { body { padding: 18px 20px 56px; font-size: 15px; } h1 { font-size: 2em; } h2 { font-size: 1.3em; } table { font-size: 0.87em; } th, td { padding: 0.5em; } }
+        body {
+            width: 100%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 24px 32px 72px;
+            background: #ffffff;
+            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+        h1 {
+            margin: 0.5em 0 1.6em;
+            padding-bottom: 0.5em;
+            border-bottom: 1px solid #e5e7eb;
+            color: #1a1a1a;
+            font-size: 2.4em;
+            font-weight: 700;
+            line-height: 1.45;
+            text-align: center;
+        }
+        h2 {
+            margin: 2.5em 0 1em;
+            padding-left: 14px;
+            border-left: 5px solid #a855f7;
+            color: #1a1a1a;
+            font-size: 1.6em;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+        h3 {
+            margin: 2em 0 1em;
+            padding: 10px 14px;
+            border-left: 4px solid #a855f7;
+            border-radius: 6px;
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.10), rgba(168, 85, 247, 0));
+            color: #4a1d8c;
+            font-size: 1.15em;
+            font-weight: 700;
+        }
+        p {
+            margin: 1em 0;
+        }
+        strong {
+            padding: 1px 4px;
+            border-radius: 4px;
+            background: rgba(168, 85, 247, 0.08);
+            color: #a855f7;
+            font-weight: 700;
+        }
+        ul, ol {
+            padding-left: 1.8em;
+        }
+        li {
+            margin: 0.5em 0;
+        }
+        li::marker {
+            color: #a855f7;
+        }
+        blockquote {
+            margin: 1.5em 0;
+            padding: 12px 18px;
+            border-left: 4px solid #a855f7;
+            border-radius: 6px;
+            background: #f9f5ff;
+            color: #4b5563;
+        }
+        blockquote p {
+            margin: 0.8em 0;
+        }
+        .reading-guide {
+            border-left-width: 5px;
+            color: #374151;
+        }
+        .reading-guide ul {
+            margin: 0.8em 0;
+        }
+        .editor-note {
+            margin: 1.5em 0;
+            padding: 12px 18px;
+            border-left: 4px solid #a855f7;
+            border-radius: 6px;
+            background: #fafafa;
+            color: #4b5563;
+        }
+        hr {
+            margin: 2.5em 0;
+            border: none;
+            border-top: 1px solid #e5e7eb;
+        }
+        a {
+            color: #7c3aed;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #a855f7;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 1.5em auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .source-index {
+            margin-top: 3em;
+            padding-top: 1.5em;
+            border-top: 2px solid #e5e7eb;
+        }
+        .source-index h2 {
+            margin-top: 0;
+        }
+        .appendix-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin: 1.4em 0;
+            font-size: 0.9em;
+            line-height: 1.65;
+        }
+        .appendix-table th,
+        .appendix-table td {
+            padding: 10px 12px;
+            border: 1px solid #e5e7eb;
+            text-align: left;
+            vertical-align: top;
+            overflow-wrap: anywhere;
+        }
+        .appendix-table th {
+            background: #f9f5ff;
+            color: #4a1d8c;
+            font-weight: 700;
+        }
+        .appendix-table th:nth-child(1),
+        .appendix-table td:nth-child(1) {
+            width: 22%;
+        }
+        .appendix-table th:nth-child(2),
+        .appendix-table td:nth-child(2) {
+            width: 58%;
+        }
+        .appendix-table th:nth-child(3),
+        .appendix-table td:nth-child(3) {
+            width: 20%;
+            white-space: nowrap;
+        }
+        .timestamp-index {
+            margin-bottom: 0;
+        }
+        .timestamp-index li {
+            margin: 0.65em 0;
+        }
+        ::selection {
+            background: #a855f7;
+            color: #ffffff;
+        }
+        @media (max-width: 640px) {
+            body {
+                padding: 18px 20px 56px;
+                font-size: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .appendix-table {
+                font-size: 0.82em;
+            }
+            .appendix-table th,
+            .appendix-table td {
+                padding: 8px 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -28,7 +188,7 @@
 
     <img src="cover.png" alt="Dario Amodei 访谈文章封面图">
 
-    <blockquote>
+    <blockquote class="reading-guide">
         <p><strong>为什么读这篇：</strong></p>
         <ul>
             <li>想判断 <strong>AI 行业未来 1—3 年的走向</strong>：这里有全球最赚钱 AI 公司掌门人对算力、收入增速、模型能力边界的内部数字。</li>
@@ -50,7 +210,7 @@
         <p><strong>“当你觉得你不能信任某个人，当你觉得他们的价值观和他们宣称的不一样，当你觉得他们不诚实，当你看到令人不安的行为模式……继续和这家公司共事就变得非常难。”</strong> [00:06:32]</p>
         <p><strong>“道不同不相为谋。让市场裁决，让舆论裁决——这比任何关于谁为什么离开的八卦都响亮。”</strong> [00:07:21]</p>
     </blockquote>
-    <p><strong>编者注：</strong>这是他对 OpenAI 最直白的一次公开表态。对照阅读：同一时期他对 Google DeepMind 的 Demis Hassabis 的评价是“认识 15 年、互相启发” [00:08:57]。他并非不容异见，而是把行业玩家明确分成“可信”与“不可信”两类，策略是让可信者结盟、倒逼其余跟进。理解这条线，才能理解他后面所有决策，包括军事红线的内在一致性。</p>
+    <p class="editor-note"><strong>编者注：</strong>这是他对 OpenAI 最直白的一次公开表态。对照阅读：同一时期他对 Google DeepMind 的 Demis Hassabis 的评价是“认识 15 年、互相启发” [00:08:57]。他并非不容异见，而是把行业玩家明确分成“可信”与“不可信”两类，策略是让可信者结盟、倒逼其余跟进。理解这条线，才能理解他后面所有决策，包括军事红线的内在一致性。</p>
 
     <h2>二、企业级不是商业决策，是价值观决策</h2>
     <p>为什么别人做消费级爆款时，Anthropic 赌编码和企业市场？他的回答把问题升了一级：<strong>商业模式必须与价值观兼容，否则“要么背叛价值观，要么变得无足轻重”</strong> [00:11:29]。</p>
@@ -61,7 +221,7 @@
         <li>2026 Q1 收入<strong>环比增长 3 倍</strong>，年化相当于 80 倍；公司按 10 倍/年规划算力，需求却按 80 倍来，token 荒和服务器承压由此而来 [00:20:05]。</li>
         <li>融资近千亿美元的理由：“对不确定性锥体的缓冲”，摊薄很小 [00:18:47]。</li>
     </ul>
-    <p><strong>编者注：</strong>注意他的护城河观：“模型质量是唯一重要的东西，我们从不依赖用户粘性” [00:14:01]。这句话在“一下午就能切换模型”的行业里，是最大的自信，也是最大的赌注。</p>
+    <p class="editor-note"><strong>编者注：</strong>注意他的护城河观：“模型质量是唯一重要的东西，我们从不依赖用户粘性” [00:14:01]。这句话在“一下午就能切换模型”的行业里，是最大的自信，也是最大的赌注。</p>
 
     <h2>三、你的护城河正在消失，你的岗位也是：他不打算让你舒服</h2>
     <p>Claude Cowork 发布当晚，2850 亿美元软件市值蒸发，交易员称之为 “SaaSpocalypse” [00:14:32]。Dario 对软件公司的建议冷静到残忍：</p>
@@ -74,7 +234,7 @@
         <p><strong>“说我在做廉价营销的人，他们自己才在做廉价营销。这是懒惰，是拒绝面对严肃的思考工作。”</strong> [00:36:02]</p>
         <p><strong>“社交媒体的三秒剪辑文化是硅谷的病。谁再这么说，我就少信谁一分。”</strong> [00:36:37]</p>
     </blockquote>
-    <p><strong>编者注：</strong>这段失控是全场情绪最高点，也是理解他的钥匙。他写了五页纸区分“任务”与“工作”、列出六类解决方案：token 税、宏观政策、企业转岗、慈善；而世界只转发了三秒。对读者而言重要的是，他的应对建议不是“别慌”，而是“蛋糕在扩大，关键是匹配速度”——物理世界、人际关系型工作、指挥 AI 的角色是三个去向 [00:33:22]。</p>
+    <p class="editor-note"><strong>编者注：</strong>这段失控是全场情绪最高点，也是理解他的钥匙。他写了五页纸区分“任务”与“工作”、列出六类解决方案：token 税、宏观政策、企业转岗、慈善；而世界只转发了三秒。对读者而言重要的是，他的应对建议不是“别慌”，而是“蛋糕在扩大，关键是匹配速度”——物理世界、人际关系型工作、指挥 AI 的角色是三个去向 [00:33:22]。</p>
 
     <h2>四、军事红线：第一个签国防部的人，也是被总统禁用的人</h2>
     <p>全场最锋利的交锋。事实层：Anthropic 是首个在美军涉密网络上运行的 AI 公司；同时拒绝两个场景——大规模监控、全自主武器；代价是总统禁令、供应链风险标签，以及 OpenAI 接手合同 [00:39:44]。</p>
@@ -84,7 +244,7 @@
         <p><strong>“你问的是，你信不信这个国家。我是爱国者。”</strong> [00:42:28]</p>
         <p><strong>“但如果民主国家去做大规模监控和全自主武器，那民主国家赢了也不值得。”</strong> [00:38:45]</p>
     </blockquote>
-    <p><strong>编者注：</strong>这段话的道德复杂性值得完整呈现而非压缩。他同时说“Claude 帮助美军每天打击目标从 1000 个到 5000 个，我支持这种能力”和“150 个孩子死了，这太可怕了”。他拒绝给你一个简单立场，只给出一个原则：供应商设高层价值边界，具体军事行动留给决策者；“就像你不能规定 Excel 能用于哪次行动”。AI 战争会阻止还是引发三战？“总体更可能阻止它，前提是我们对使用方式设限” [00:47:03]。</p>
+    <p class="editor-note"><strong>编者注：</strong>这段话的道德复杂性值得完整呈现而非压缩。他同时说“Claude 帮助美军每天打击目标从 1000 个到 5000 个，我支持这种能力”和“150 个孩子死了，这太可怕了”。他拒绝给你一个简单立场，只给出一个原则：供应商设高层价值边界，具体军事行动留给决策者；“就像你不能规定 Excel 能用于哪次行动”。AI 战争会阻止还是引发三战？“总体更可能阻止它，前提是我们对使用方式设限” [00:47:03]。</p>
 
     <h2>五、Mythos：强到不敢发布的模型，和被误读的争议</h2>
     <p>信息密度最高的一段。Mythos 能自主走完整条网络杀伤链——不只是找漏洞，<strong>还能把漏洞变成可用的 exploit</strong> [00:48:37]。拿到早期权限的企业反过来求 Anthropic 别发布：</p>
@@ -109,8 +269,9 @@
 
     <hr>
 
+    <div class="source-index">
     <h2>附录 A：关键数字速查</h2>
-    <table>
+    <table class="appendix-table">
         <thead><tr><th>数字</th><th>内容</th><th>时间戳</th></tr></thead>
         <tbody>
             <tr><td>约 1 万亿</td><td>估值，高于 OpenAI</td><td>[00:18:28]</td></tr>
@@ -126,7 +287,7 @@
     </table>
 
     <h2>附录 B：时间戳跳片索引</h2>
-    <ul>
+    <ul class="timestamp-index">
         <li>05:18—07:44：离开 OpenAI 的真实原因（全场最直白）</li>
         <li>14:38—17:18：SaaSpocalypse 与护城河消长</li>
         <li>18:28—21:16：估值、3 倍收入、算力紧张</li>
@@ -135,6 +296,7 @@
         <li>48:17—54:11：Mythos 能力与发布争议（密度最高）</li>
         <li>01:03:24—01:09:21：自我改进、Szilard、10%—25% 风险、“为什么信你”</li>
     </ul>
+    </div>
 
     <hr>
 
