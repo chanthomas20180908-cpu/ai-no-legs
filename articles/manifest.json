@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-29-code-agent-general-agent",
+      "title": "一个做了 20 年 AI 的人说：代码 Agent 和通用 Agent 是同一种东西",
+      "date": "2026-07-29",
+      "excerpt": "CodeGen 创始人 Jay Hack 的判断是：能写代码并执行代码的 Agent，正在收敛为通用 Agent；而可验证性、可解释性与推理成本决定了这条路的边界。",
+      "cover": "articles/2026-07-29-code-agent-general-agent/cover.png",
+      "tags": ["AI", "Agent", "CodeGen", "访谈解读"]
+    },
+    {
       "slug": "2026-07-26-anthropic-dario-amodei-interview",
       "title": "Anthropic CEO Dario Amodei 的 70 分钟访谈：权力、战争与 AI 风险",
       "date": "2026-07-26",
