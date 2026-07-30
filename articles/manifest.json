@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-07-30-sam-altman-intelligence-infrastructure",
+      "title": "Sam Altman 的赌注：智能会商品化，稀缺的是把它变成基础设施的能力",
+      "date": "2026-07-30",
+      "excerpt": "Sam Altman 认为智能会趋向商品化，真正稀缺的是持续建设算力、能源、芯片、产品和分发系统的能力；但这套假设仍需由需求、价格与实际使用验证。",
+      "cover": "articles/2026-07-30-sam-altman-intelligence-infrastructure/cover.png",
+      "tags": ["AI", "OpenAI", "Sam Altman", "基础设施"]
+    },
+    {
       "slug": "2026-07-29-code-agent-general-agent",
       "title": "一个做了 20 年 AI 的人说：代码 Agent 和通用 Agent 是同一种东西",
       "date": "2026-07-29",
