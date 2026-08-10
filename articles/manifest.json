@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-08-08-bloomberg-tech-ai-briefing",
+      "title": "AI 的下一轮瓶颈，不是模型能力，而是把能力变成收入、算力和防御速度",
+      "date": "2026-08-08",
+      "excerpt": "这期节目最重要的信号不是又多了一个模型，而是 AI 已开始被三种硬约束检验：企业客户是否愿意按结果付费，供应链能否承受推理需求，以及防御方能否跟上 AI 加速后的攻击速度。",
+      "cover": "articles/2026-08-08-bloomberg-tech-ai-briefing/cover.png",
+      "tags": ["AI", "商业观察", "基础设施", "网络安全"]
+    },
+    {
       "slug": "2026-07-30-sam-altman-intelligence-infrastructure",
       "title": "Sam Altman 的赌注：智能会商品化，稀缺的是把它变成基础设施的能力",
       "date": "2026-07-30",

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 的下一轮瓶颈，不是模型能力，而是把能力变成收入、算力和防御速度</title>
+  <style>
+    body { width:100%; max-width:1000px; box-sizing:border-box; margin:0 auto; padding:24px 32px 72px; background:#fff; color:#1a1a1a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size:16px; line-height:1.9; }
+    h1 { margin:.5em 0 1.6em; padding-bottom:.5em; border-bottom:1px solid #e5e7eb; font-size:2.4em; font-weight:700; line-height:1.45; text-align:center; }
+    h2 { margin:2.5em 0 1em; padding-left:14px; border-left:5px solid #a855f7; font-size:1.6em; font-weight:700; line-height:1.55; }
+    h3 { margin:2em 0 1em; padding:10px 14px; border-left:4px solid #a855f7; border-radius:6px; background:linear-gradient(90deg,rgba(168,85,247,.10),rgba(168,85,247,0)); color:#4a1d8c; font-size:1.15em; }
+    p { margin:1em 0; } strong { padding:1px 4px; border-radius:4px; background:rgba(168,85,247,.08); color:#a855f7; font-weight:700; }
+    ul,ol { padding-left:1.8em; } li { margin:.5em 0; } li::marker { color:#a855f7; }
+    blockquote { margin:1.5em 0; padding:12px 18px; border-left:4px solid #a855f7; border-radius:6px; background:#f9f5ff; color:#4b5563; } blockquote p { margin:.8em 0; }
+    hr { margin:2.5em 0; border:none; border-top:1px solid #e5e7eb; } a { color:#7c3aed; text-decoration:none; }
+    img { display:block; max-width:100%; margin:1.5em auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    .source-index { margin-top:3em; padding-top:1.5em; border-top:2px solid #e5e7eb; }
+    .source-index h2 { margin-top:0; } table { width:100%; table-layout:fixed; border-collapse:collapse; margin:1.4em 0; font-size:.9em; line-height:1.65; }
+    th,td { padding:10px 12px; border:1px solid #e5e7eb; text-align:left; vertical-align:top; overflow-wrap:anywhere; } th { background:#f9f5ff; color:#4a1d8c; font-weight:700; }
+    table th:first-child,table td:first-child { width:36%; } table th:last-child,table td:last-child { width:64%; }
+    .three-column th:first-child,.three-column td:first-child { width:28%; } .three-column th:nth-child(2),.three-column td:nth-child(2) { width:40%; } .three-column th:last-child,.three-column td:last-child { width:32%; }
+    ::selection { background:#a855f7; color:#fff; } @media (max-width:640px) { body { padding:18px 20px 56px; font-size:15px; } h1 { font-size:2em; } h2 { font-size:1.3em; } table { font-size:.82em; } th,td { padding:8px 6px; } }
+  </style>
+</head>
+<body>
+  <h1>AI 的下一轮瓶颈，不是模型能力，而是把能力变成收入、算力和防御速度</h1>
+  <img src="cover.png" alt="Bloomberg Tech 节目中的 Palantir 股价图表">
+
+  <h2>节目信息</h2>
+  <ul>
+    <li>来源：<a href="https://www.youtube.com/watch?v=l_5UUDYETpw" target="_blank" rel="noopener noreferrer">Bloomberg Tech</a></li>
+    <li>频道：Bloomberg Tech</li>
+    <li>原片时长：44:12</li>
+    <li>主持人：Ed Ludlow，Bloomberg Tech 主持人</li>
+    <li>嘉宾与记者：Mariana Perez-Mora，Bank of America Securities 航空航天与国防分析师；Saleem Wu，Lazard 全球机器人与自动化团队投资组合经理；Mike Shepard，Bloomberg Tech 高级科技编辑；Nikesh Arora，Palo Alto Networks 董事长兼 CEO；Clem Delangue，Hugging Face CEO。</li>
+    <li>公开发布时间：本地转录未记录，以原视频页面为准。</li>
+    <li>覆盖范围：仅覆盖 AI 商业化、推理基础设施、模型管制与 AI 网络安全话题。</li>
+    <li>阅读时间：约 8 分钟</li>
+  </ul>
+
+  <h2>为什么读这篇</h2>
+  <ul>
+    <li><strong>判断行业趋势</strong>：看清 AI 竞争为何从“谁的模型更强”转向“谁能嵌入业务、持续供应算力并守住系统”。</li>
+    <li><strong>追踪公司</strong>：了解节目如何串起 Palantir 的企业落地、云厂商的推理需求、Anthropic 所处的政策摩擦，以及 Palo Alto Networks 的防守策略。</li>
+    <li><strong>识别市场信号</strong>：从业绩、云增长、长期采购与成本预期中提炼观察框架；本文不构成投资建议。</li>
+  </ul>
+  <blockquote><p><strong>一句话总结</strong>：这期节目最重要的信号不是又多了一个模型，而是 AI 已开始被三种硬约束检验：企业客户是否愿意按结果付费，供应链能否承受推理需求，以及防御方能否跟上 AI 加速后的攻击速度。</p></blockquote>
+
+  <h2>核心观点速览</h2>
+  <ol>
+    <li><strong>企业 AI 的护城河不在“接入模型”，而在把模型塞进可验证的决策流程。</strong> Palantir 的案例被用来说明：客户付费的是数据、业务对象与人的协同，而不是一个孤立的聊天界面。</li>
+    <li><strong>推理正在替代训练，成为算力叙事的主引擎。</strong> 节目嘉宾将云收入、客户积压订单和长期采购视为需求并未减速的证据。</li>
+    <li><strong>前沿模型已是地缘政治资产。</strong> 芯片出口、模型访问与蒸馏指控正合并成同一场模型主权博弈。</li>
+    <li><strong>AI 网络安全的关键指标是修补速度。</strong> 当发现到利用的窗口趋近于零，数周级补丁流程本身就是风险。</li>
+    <li><strong>Token 单价会决定 Agent 能否越过试点。</strong> 如果每一步推理都昂贵，企业部署的上限首先来自成本结构，而非演示效果。</li>
+  </ol>
+
+  <h2>背景速览</h2>
+  <ul>
+    <li><strong>频道</strong>：Bloomberg Tech，节目由多段新闻、市场分析和高管访谈组成。</li>
+    <li><strong>相关人物</strong>：Palantir 覆盖分析师 Mariana Perez-Mora、Lazard 基金经理 Saleem Wu、Palo Alto Networks CEO Nikesh Arora，以及 Hugging Face CEO Clem Delangue。</li>
+    <li><strong>覆盖内容</strong>：企业 AI 商业化、云与芯片基础设施、前沿模型的中美摩擦、AI 网络安全和 Token 成本。</li>
+  </ul>
+  <hr>
+
+  <h2>一、Palantir 的增长提醒所有 AI 公司：客户购买的是“把事情做成”</h2>
+  <p><strong>本章发言来源</strong>：Ed Ludlow（Bloomberg Tech 主持人）与 Mariana Perez-Mora（Bank of America Securities 航空航天与国防分析师）。</p>
+  <p>节目给出的 Palantir 美国商业收入是 7.64 亿美元，增幅接近 150%；过去 12 个月，美国客户平均支出又增加约 67%。Ed Ludlow 随即把问题拉回最朴素的一层：Palantir 到底替客户做了什么？</p>
+  <p>Perez-Mora 说，客户试过自己实施，但事情并不简单。难点不只是接通数据和模型，而是把现实中的业务对象、决策方式，以及人如何与 AI 协作，一起变成可运行的流程。Palantir 积累多年的，正是这层编排能力。</p>
+  <p>这也解释了它为何按结果定价：先与客户一起解决问题，再根据可衡量的产出收费。但同一套模式到了欧洲会撞上另一道门槛。客户可以保有数据和 IP，却仍可能不愿把关键流程交给一家立场鲜明的美国公司——技术主权在这里同时帮助 Palantir，也限制 Palantir。</p>
+  <p><strong>本章要点</strong>：客户为可验证的业务结果付费，但流程控制权和数据控制权同样决定交易能否发生。</p>
+
+  <h2>二、推理需求让资本开支从信念变成一场供应链考试</h2>
+  <p><strong>本章发言来源</strong>：Ed Ludlow（Bloomberg Tech 主持人）与 Saleem Wu（Lazard 全球机器人与自动化团队投资组合经理）。</p>
+  <p>一旦 AI 真正进入客户流程，下一张账单就来自推理。Saleem Wu 观察到，微软、亚马逊和 Google 本季度合计增长约 50%，是五个季度前的两倍；她把这视为 AI 投入开始流回云业务的证据。训练负载仍在，但 Agent 带来的持续推理正在接过需求主线。</p>
+  <p>需求是否真实，还可以从更上游看。Ed Ludlow 提到，内存客户开始要求签五年协议——这在历史上并不常见；Wu 随后指向台积电额外 1,000 亿美元的扩产承诺。云收入、长期采购和晶圆厂资本开支，组成了一条从使用量延伸到产能的证据链。</p>
+  <p>这条链仍不是确定性承诺。长期订单可能调整，供给和价格也会改变；Wu 给出的是投资经理基于客户能见度的判断，而不是公司的未来保证。但观察重点已经改变：AI 热度能否延续，最终要落到推理量、采购期限和交付能力上。</p>
+  <p><strong>本章要点</strong>：推理把模型能力变成持续负载，而五年采购与扩产承诺让需求开始留下可追踪的供应链痕迹。</p>
+
+  <h2>三、前沿模型不再只是产品，它也是贸易与安全议题</h2>
+  <p><strong>本章发言来源</strong>：Ed Ludlow（Bloomberg Tech 主持人）与 Mike Shepard（Bloomberg Tech 高级科技编辑）。</p>
+  <p>Mike Shepard 把中国对美国前沿模型的担忧称为“硬币的另一面”。美国限制先进芯片出口，理由之一是担心它们增强中国的军事与安全能力；中国官员则担忧美国模型可能成为针对本国经济的进攻工具，只是当时没有给出具体方式。</p>
+  <p>于是，模型访问开始和芯片出口站到同一张谈判桌上。哪些伙伴可以获得最强能力、哪些市场继续被排除、模型输出是否被用于蒸馏，都不再只是产品条款。Shepard 同时提到 Anthropic 对中国公司的蒸馏指控；这是公司的主张，而不是节目已经证实的结论。</p>
+  <p>这层对照让“技术领先”变成三个问题：能力有多强，谁能拿到，以及监管允许它在哪里运行。模型做出来只是第一步；供应商、云厂商和企业客户还要共同承担分发边界带来的商业后果。</p>
+  <p><strong>本章要点</strong>：模型、芯片和许可正在被捆绑管理；能力存在，不代表目标客户能够获得或部署它。</p>
+
+  <h2>四、攻击者把窗口压到分钟，防守者就不能再按天补丁</h2>
+  <p><strong>本章发言来源</strong>：Ed Ludlow（Bloomberg Tech 主持人）与 Nikesh Arora（Palo Alto Networks 董事长兼 CEO）；Clem Delangue（Hugging Face CEO）提供后续回应。</p>
+  <p>Ed Ludlow 问 Nikesh Arora：到底要解决什么问题？Arora 给出的不是宽泛的“AI 安全”，而是一只正在加速的时钟。传统漏洞平均需要 55 天修补；当 AI 能迅速发现漏洞并寻找利用方式，这段等待时间本身就成了攻击窗口。</p>
+  <p>AI Agent 不只发现单个缺口，还能把多个漏洞连成一条攻击路径。Palo Alto Networks 的回应，是在原始软件补丁到来之前先生成虚拟补丁，并把内部流程压缩到约 4 小时。防御因此从“是否看见风险”，变成“能否以接近攻击者的速度完成发现、验证和阻断”。</p>
+  <p>Clem Delangue 随后补上反方向的风险：Hugging Face 使用开放模型完成了防御，而前沿 API 的护栏反而限制了可用工具。开放权重可能降低攻击门槛，也可能让防守者保有反击能力；只限制能力扩散，并不会自动缩短防御闭环。</p>
+  <p><strong>本章要点</strong>：AI 攻防首先是一场速度竞赛，而开放或封闭的选择还必须计算防守者失去工具的代价。</p>
+
+  <h2>五、Token 经济决定 Agent 是功能，还是企业的新成本中心</h2>
+  <p><strong>本章发言来源</strong>：Ed Ludlow（Bloomberg Tech 主持人）与 Nikesh Arora（Palo Alto Networks 董事长兼 CEO）。</p>
+  <p>当 Ed Ludlow 把问题转向 Agent 集群的 Token 经济时，Arora 直接判断 Token 定价过高：价格需要下降 80%–90%，企业才能把 AI 更广泛地放进产品、药物研究和内部流程。调用越连续、Agent 越多，演示中的能力就越快变成运营账单。</p>
+  <p>Arora 预计，未来十年可能有 10%–15% 的企业 OPEX 流向 AI、IT 或 Token。这不是单纯的模型单价问题：一次任务要走多少步、失败后重试几次、需要多少人工复核，共同决定客户为一个成功结果付出多少成本。</p>
+  <p>至此，节目的五段讨论连成了同一条链：Palantir 证明结果能否收费，云和芯片厂商回答推理能否供应，政策决定能力能否交付，安全厂商追赶攻击速度，而 Token 价格决定这一切能否大规模运行。</p>
+  <p><strong>本章要点</strong>：Agent 的部署边界由单位结果成本决定；模型更强，只有在每次成功执行也足够便宜时才有商业意义。</p>
+
+  <div class="source-index">
+    <h2>词条解释</h2>
+    <p><strong>结果定价（outcome-based pricing）</strong>：供应商按客户取得的业务结果，而非固定软件席位或单纯使用量收费的模式。结果的归因和衡量方式是这一模式能否成立的关键。</p>
+    <p><strong>推理（inference）</strong>：已训练模型在实际任务中生成回答、调用工具或执行 Agent 步骤的过程。与集中式训练不同，它往往是持续的生产负载。</p>
+    <p><strong>虚拟补丁（virtual patching）</strong>：在原始软件补丁尚未发布或部署前，通过网络、WAF、策略或其他控制层临时阻断已知攻击路径。</p>
+    <p><strong>模型蒸馏（distillation）</strong>：用更强模型的输出训练较小模型的技术。在节目语境中，它被放入模型能力获取和竞争公平性的争议中。</p>
+    <p><strong>Token</strong>：语言模型处理和生成文本等内容的计量单位，也是许多模型服务的计费基础。</p>
+
+    <h2>统计附录</h2>
+    <h3>关键数字表</h3>
+    <table class="three-column"><thead><tr><th>数字</th><th>节目中的含义</th><th>回听</th></tr></thead><tbody>
+      <tr><td>7.64 亿美元</td><td>Palantir 美国商业收入，节目称接近同比增长 150%</td><td>[00:01:16–00:01:34]</td></tr>
+      <tr><td>约 67%</td><td>Palantir 美国客户过去 12 个月平均支出增幅</td><td>[00:02:37–00:02:45]</td></tr>
+      <tr><td>约 50%</td><td>嘉宾称三大云厂商本季度合计增长率</td><td>[00:27:05–00:27:24]</td></tr>
+      <tr><td>1,000 亿美元</td><td>嘉宾提及的台积电额外资本开支承诺</td><td>[00:30:07–00:30:32]</td></tr>
+      <tr><td>55 天 → 约 4 小时</td><td>Palo Alto Networks CEO 对漏洞修补周期的对比</td><td>[00:32:49–00:34:26]</td></tr>
+      <tr><td>80%–90%</td><td>Arora 认为 Token 价格需要下降的幅度</td><td>[00:36:50–00:37:24]</td></tr>
+      <tr><td>10%–15%</td><td>Arora 对未来十年 AI/IT/Token 支出占 OPEX 的预期</td><td>[00:37:31–00:37:48]</td></tr>
+    </tbody></table>
+    <h3>争议对照</h3>
+    <table><thead><tr><th>问题</th><th>节目呈现的张力</th></tr></thead><tbody>
+      <tr><td>AI 资本开支是否被验证</td><td>云收入和长期采购提供正面信号；供给、价格和周期仍可能变化。</td></tr>
+      <tr><td>开放模型应被限制还是扩展</td><td>能力扩散会降低攻击门槛；开放权重也可能让防御者获得必要工具。</td></tr>
+      <tr><td>AI 主权是否只等同于本地部署</td><td>客户可保有数据与 IP，并不自动消除对供应商国别、模型访问和出口规则的顾虑。</td></tr>
+    </tbody></table>
+    <h3>时间戳索引</h3>
+    <ul>
+      <li>Palantir：商业收入、业务编排、结果定价与欧洲主权顾虑：[00:01:16–00:06:54]</li>
+      <li>前沿模型、出口限制与中美谈判：[00:18:01–00:21:58]</li>
+      <li>云收入、推理负载、长期采购和扩产：[00:25:00–00:30:41]</li>
+      <li>Palo Alto Networks 的 AI 防御、漏洞窗口与 Token 经济：[00:31:16–00:38:55]</li>
+      <li>Hugging Face 对开放权重防御价值的观点：[00:38:59–00:39:33]</li>
+    </ul>
+    <h3>转录说明</h3>
+    <p>本文基于 Whisper turbo 英文转录；公司、产品和时事名称可能存在误识别。所有数字、引语与新闻性断言均应以原音频及相关一手披露为准。</p>
+  </div>
+</body>
+</html>
