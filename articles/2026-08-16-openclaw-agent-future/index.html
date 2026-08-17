@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常驻 Agent 已经不是技术幻想，真正拦路的是成本、基础设施和控制权</title>
+  <style>
+    body { width:100%; max-width:1000px; box-sizing:border-box; margin:0 auto; padding:24px 32px 72px; background:#fff; color:#1a1a1a; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size:16px; line-height:1.9; }
+    h1 { margin:.5em 0 1.6em; padding-bottom:.5em; border-bottom:1px solid #e5e7eb; font-size:2.4em; font-weight:700; line-height:1.45; text-align:center; }
+    h2 { margin:2.5em 0 1em; padding-left:14px; border-left:5px solid #a855f7; font-size:1.6em; font-weight:700; line-height:1.55; }
+    h3 { margin:2em 0 1em; padding:10px 14px; border-left:4px solid #a855f7; border-radius:6px; background:linear-gradient(90deg,rgba(168,85,247,.10),rgba(168,85,247,0)); color:#4a1d8c; font-size:1.15em; }
+    p { margin:1em 0; }
+    strong { padding:1px 4px; border-radius:4px; background:rgba(168,85,247,.08); color:#a855f7; font-weight:700; }
+    ul,ol { padding-left:1.8em; }
+    li { margin:.5em 0; }
+    li::marker { color:#a855f7; }
+    blockquote { margin:1.5em 0; padding:12px 18px; border-left:4px solid #a855f7; border-radius:6px; background:#f9f5ff; color:#4b5563; }
+    blockquote p { margin:.8em 0; }
+    hr { margin:2.5em 0; border:none; border-top:1px solid #e5e7eb; }
+    a { color:#7c3aed; text-decoration:none; }
+    img { display:block; max-width:100%; margin:1.5em auto; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    .source-index { margin-top:3em; padding-top:1.5em; border-top:2px solid #e5e7eb; }
+    .source-index h2 { margin-top:0; }
+    table { width:100%; table-layout:fixed; border-collapse:collapse; margin:1.4em 0; font-size:.9em; line-height:1.65; }
+    th,td { padding:10px 12px; border:1px solid #e5e7eb; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    th { background:#f9f5ff; color:#4a1d8c; font-weight:700; }
+    table th:first-child,table td:first-child { width:36%; }
+    table th:last-child,table td:last-child { width:64%; }
+    .three-column th:first-child,.three-column td:first-child { width:18%; }
+    .three-column th:nth-child(2),.three-column td:nth-child(2) { width:57%; }
+    .three-column th:last-child,.three-column td:last-child { width:25%; }
+    ::selection { background:#a855f7; color:#fff; }
+    @media (max-width:640px) {
+      body { padding:18px 20px 56px; font-size:15px; }
+      h1 { font-size:2em; }
+      h2 { font-size:1.3em; }
+      table { font-size:.82em; }
+      th,td { padding:8px 6px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>常驻 Agent 已经不是技术幻想，真正拦路的是成本、基础设施和控制权</h1>
+  <img src="cover.png" alt="OpenClaw 创建者 Peter 在 Y Combinator 公开演讲">
+
+  <h2>节目信息</h2>
+  <ul>
+    <li>来源：<a href="https://www.youtube.com/watch?v=whcfSGN6CAU" target="_blank" rel="noopener noreferrer">OpenClaw 公开演讲视频 Peter Steinberger: &quot;Fun Is Velocity&quot;</a></li>
+    <li>频道：Y Combinator</li>
+    <li>原片时长：41:52</li>
+    <li>主持人：无固定主持人；前半段为 Peter 单人演讲，后半段为现场问答</li>
+    <li>嘉宾与记者：Peter，OpenClaw 创建者；现场观众，均未具名</li>
+    <li>公开发布时间：本地转录未记录，以原视频页面为准</li>
+    <li>覆盖范围：仅覆盖 AI Agent 的入口、常驻能力、开放生态、多模态、成本与跨设备基础设施</li>
+    <li>阅读时间：约 8 分钟</li>
+  </ul>
+
+  <h2>为什么读这篇</h2>
+  <ul>
+    <li><strong>判断趋势</strong>：分清“模型已经会做”和“普通人可以持续使用”之间还隔着哪些系统条件。</li>
+    <li><strong>做 Agent 产品</strong>：理解入口、主动性、模型选择、数据控制和 Token 账单如何共同决定体验。</li>
+    <li><strong>找创业机会</strong>：从 macOS 测试环境、跨设备调度和高效 heartbeat 中识别仍未被解决的基础设施问题。</li>
+  </ul>
+  <blockquote><p><strong>一句话总结</strong>：常驻 Agent 的第一道墙不是能力，而是 Token；再往后还有唤醒策略、跨设备执行、隐私控制和资源调度，任何一层没接住，所谓“永远在线”都可能只是永远烧钱。</p></blockquote>
+
+  <h2>核心观点速览</h2>
+  <ol>
+    <li><strong>Agent 的突破先发生在入口。</strong> 从终端搬进 WhatsApp 后，同样的模型能力第一次像一个可以相处的对象。</li>
+    <li><strong>主动性不是定时发消息。</strong> 系统要知道何时醒来、需要看多少上下文，以及这次行动是否值得成本。</li>
+    <li><strong>开放生态提供的是退出权。</strong> 任意模型、本地运行和数据不离设备，让用户不被单一实验室锁住。</li>
+    <li><strong>多模态会让 Agent 离开文本框。</strong> 语音、FaceTime 和跨设备协作把交互变成持续关系，也放大权限风险。</li>
+    <li><strong>基础设施机会藏在“不性感”的地方。</strong> macOS 测试盒、任务迁移和 fleet 调度，比再画一张 graph 更接近真实瓶颈。</li>
+  </ol>
+
+  <h2>背景速览</h2>
+  <ul>
+    <li><strong>人物</strong>：Peter，OpenClaw 创建者；姓氏未由本地材料核准。</li>
+    <li><strong>产品愿景</strong>：开放源码、可在不同机器运行、支持不同模型，并让用户保有本地数据控制。</li>
+    <li><strong>材料边界</strong>：未来方向均为演讲者判断或实验描述，不等同于已普遍交付的产品能力。</li>
+  </ul>
+  <hr>
+
+  <h2>一、同样是发 prompt，搬进 WhatsApp 后才第一次像一个 Agent</h2>
+  <p><strong>本章发言来源</strong>：Peter（OpenClaw 创建者）。</p>
+  <p>Peter 最早要解决的不是宏大问题，只是去厨房时不想让电脑上的 coding agent 白等。他让模型做了一个 WhatsApp relay，大约一小时后，手机可以把消息送到 Mac，再把结果带回来。终端里早已能完成同样的问答，感觉却完全不同。</p>
+  <p>差别来自被藏起来的复杂度。用户不用选择模型、计算上下文长度，也不用判断什么时候新开 session；回答更短，Agent 还会主动来问候。能力没有突然跃迁，入口、语气和持续性却把工具变成了一个似乎“在那里”的对象。</p>
+  <p>朋友群聊进一步验证了这种变化。有人惊喜，有人害怕，非技术朋友被拒绝使用后会生气。Agent 产品的第一场竞争未必是谁的 benchmark 更高，而是谁能让复杂能力进入已经存在的生活动作，又不让用户先读一份部署手册。</p>
+  <p><strong>本章要点</strong>：Agent 的可感知价值来自能力与入口的组合；降低交互摩擦，往往比再加一个模型选项更重要。</p>
+
+  <h2>二、实验室都会卖 Agent，开放生态争夺的是用户的退出权</h2>
+  <p><strong>本章发言来源</strong>：Peter（OpenClaw 创建者）。</p>
+  <p>Peter 对 OpenClaw 的定位很直接：每家实验室都会卖自己的 Agent，OpenClaw 要做那个开放的替代品。它希望在不同机器运行、支持不同模型；使用本地模型时，数据不必离开设备。他把这套主张归结为用户的 Agent、机器和生活仍属于用户。</p>
+  <p>开放并不会自动消除依赖。Peter 也承认，harness 曾对某一模型优化过深，上游改变订阅规则时，项目只得到约 24 小时通知。支持多个模型和真正能无痛切换之间，还隔着体验、性格、工具适配和成本。</p>
+  <p>开放生态真正提供的不是“完全没有平台”，而是退出权。用户能否更换模型、迁移数据、保留工作流，决定一个 Agent 是个人基础设施，还是另一个更会聊天的租用入口。开放源码只是起点，迁移是否真的可用才是考题。</p>
+  <p><strong>本章要点</strong>：开放 Agent 的价值在于降低被单一模型和平台锁定的代价，而不是假装依赖已经消失。</p>
+
+  <h2>三、常驻 Agent 今天就能运行，但它可能只是定时烧掉你的上下文</h2>
+  <p><strong>本章发言来源</strong>：Peter（OpenClaw 创建者），回应现场观众关于持续运行与主动工作的提问。</p>
+  <p>现场有人问，什么时候能有永久运行、主动工作的 Agent。Peter 的回答不是“等下一代模型”，而是技术上今天就能做，只是大多数订阅撑不了多久。能力已经越过演示门槛，经济性还没越过日常使用门槛。</p>
+  <p>他早期使用静态 heartbeat 定期唤醒 Agent，问题很快出现。一个大型 session 在缓存清除后重新检查，可能把 600,000 tokens 再发到服务器，只为了完成一次没有多少价值的确认。Agent 确实醒了，账单也醒得很彻底。</p>
+  <p>真正的主动性需要判断何时不行动。系统要先压缩状态、识别变化、估算任务价值，再决定是否恢复完整上下文。定时器只能保证 Agent 活着，不能保证它清醒；如果每次心跳都从头回忆人生，常驻只会成为一种昂贵的失忆。</p>
+  <p><strong>本章要点</strong>：常驻 Agent 的第一道墙不是能力，而是 Token；唤醒策略必须让“不做事”也成为有效决策。</p>
+
+  <h2>四、语音和 FaceTime 会让 Agent 离开文本框，也把权限问题带进日常生活</h2>
+  <p><strong>本章发言来源</strong>：Peter（OpenClaw 创建者）。</p>
+  <p>Peter 认为文本界面的阶段正在过去，语音与多模态会让 Agent 更自然地进入生活。他提到团队刚做出一个实验，让 OpenClaw 可以通过 FaceTime 联系用户。这个画面很像产品愿景，也像权限审查员突然多了一份夜班。</p>
+  <p>当 Agent 只在终端里，它接触的是命令和文件；当它能打电话、看屏幕、操作桌面，它接触的是人正在做的事情。便利来自上下文更完整，风险也来自同一件事。身份、授权、打扰边界和误操作不能等功能成熟后再补。</p>
+  <p>Peter 还描述团队共享 session 的方向：成员能看见彼此的 Agent 在做什么，另一个 Agent 了解全局并接手编排。协作由“人同步给人”变成“Agent 同步给 Agent”，前提是每个人都知道谁看得到什么、谁有权接管。</p>
+  <p><strong>本章要点</strong>：多模态和团队编排扩大 Agent 的作用范围，也要求权限、可见性与接管规则同步升级。</p>
+
+  <h2>五、Agent 产业最缺的产品，可能是便宜、无聊、能稳定交付一台机器</h2>
+  <p><strong>本章发言来源</strong>：Peter（OpenClaw 创建者），回应现场观众关于基础设施瓶颈和希望有人构建什么产品的提问。</p>
+  <p>Web 任务可以较容易地创建云端 session，涉及 macOS、桌面交互或本机文件时，Peter 说大多数工具就会失败。他仍用屏幕共享进入其他电脑分散负载，让 Agent 拥有独立机器，避免自己和它争夺鼠标。</p>
+  <p>演讲临近收尾时，有人问他希望别人做什么产品。Peter 想要一个适用于 Mac、也能覆盖 Windows、速度快且价格合理的测试盒。Linux 环境容易获得，桌面系统却仍很麻烦。这不是最会制造发布会掌声的方向，却会决定 Agent 能否真正替开发者跑完任务。</p>
+  <p>机会因此落在一批很“硬且无聊”的问题上：环境启动、状态迁移、设备权限、资源隔离、失败重试和 fleet 调度。模型负责思考，基础设施负责让思考有地方发生。后一层不稳定，前一层越聪明，失败时越有创造力。</p>
+  <p><strong>本章要点</strong>：Agent 规模化需要可租用、可迁移、可控制的真实执行环境；跨设备基础设施仍是明显缺口。</p>
+
+  <hr>
+  <p>常驻 Agent 已经不只是科幻命题，但“能运行”离“值得一直运行”还很远。真正可用的系统必须同时回答四个问题：何时醒来，花多少 Token，在哪台机器执行，以及用户能否随时撤回权限和更换模型。少一个，未来就会从助手滑向负担。</p>
+
+  <div class="source-index">
+    <h2>词条解释</h2>
+    <p><strong>Heartbeat</strong>：系统定期唤醒 Agent 检查状态或触发工作的机制。固定频率容易造成无效调用和上下文重复传输。</p>
+    <p><strong>KV cache</strong>：模型推理中复用既有上下文计算结果的缓存。缓存失效后，长上下文可能需要重新处理并产生额外成本。</p>
+    <p><strong>开放权重模型</strong>：模型权重可被获取并在自有环境运行的模型。它有助于本地控制，但仍需要硬件、部署和安全能力。</p>
+    <p><strong>退出权</strong>：用户离开某个供应商时，能否带走数据、工作流和模型选择，而不让既有系统失效。</p>
+    <p><strong>测试盒</strong>：为软件测试临时提供的隔离机器或环境，尤其用于需要特定操作系统和桌面交互的任务。</p>
+
+    <h2>统计附录</h2>
+    <h3>关键数字表</h3>
+    <table class="three-column">
+      <thead><tr><th>数字</th><th>演讲中的含义</th><th>回听</th></tr></thead>
+      <tbody>
+        <tr><td>约 1 小时</td><td>WhatsApp relay 首个可用版本的构建时间</td><td>[00:02:46–00:03:14]</td></tr>
+        <tr><td>约 24 小时</td><td>上游订阅策略变化前给出的通知</td><td>[00:18:09–00:18:23]</td></tr>
+        <tr><td>10 人</td><td>演讲时基金会口述的领薪团队规模</td><td>[00:23:59–00:24:05]</td></tr>
+        <tr><td>33,000</td><td>Peter 口述的 claw 命名仓库数量</td><td>[00:24:09–00:24:24]</td></tr>
+        <tr><td>600,000 tokens</td><td>大型 session 在缓存清除后一次 heartbeat 可能重发的上下文</td><td>[00:38:10–00:38:34]</td></tr>
+      </tbody>
+    </table>
+
+    <h3>争议对照</h3>
+    <table>
+      <thead><tr><th>问题</th><th>张力</th></tr></thead>
+      <tbody>
+        <tr><td>开放源码是否等于摆脱依赖</td><td>用户获得迁移与本地运行可能；模型体验和上游规则仍会形成依赖。</td></tr>
+        <tr><td>常驻是否等于主动</td><td>定时唤醒保证持续运行；不能保证行动有价值或成本合理。</td></tr>
+        <tr><td>多模态是否只增加便利</td><td>语音、屏幕和桌面操作改善交互；也扩大权限和隐私边界。</td></tr>
+        <tr><td>更强模型是否会自动解决 Agent 问题</td><td>模型能力持续提高；执行环境、资源调度和跨设备状态仍需工程系统。</td></tr>
+      </tbody>
+    </table>
+
+    <h3>时间戳索引</h3>
+    <ul>
+      <li>WhatsApp relay、主动性与朋友验证：[00:01:18–00:05:22]</li>
+      <li>模型依赖与切换风险：[00:17:42–00:19:03]</li>
+      <li>开放生态、多模态与团队 session：[00:23:06–00:26:28]</li>
+      <li>Workflow 与 graph 的边界：[00:27:15–00:29:39]</li>
+      <li>Agent fleet、macOS 与远端机器：[00:34:52–00:36:08]</li>
+      <li>常驻 Agent、heartbeat 与 Token 成本：[00:37:21–00:38:40]</li>
+      <li>Peter 希望出现的跨平台测试盒：[00:40:01–00:41:50]</li>
+    </ul>
+
+    <h3>转录说明</h3>
+    <p>本文基于 Whisper turbo 英文转录。FaceTime、团队 session、常驻 Agent 等均按 Peter 的实验或方向性表述处理，不代表已普遍交付；产品名称的 <code>Open Clouds/open clock/clause</code> 等词形疑似误识别，以原音频为准。</p>
+  </div>
+</body>
+</html>
