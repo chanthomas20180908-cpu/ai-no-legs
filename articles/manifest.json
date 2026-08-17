@@ -5,6 +5,14 @@
   },
   "articles": [
     {
+      "slug": "2026-08-17-a16z-lighthouse-landgrab",
+      "title": "a16z：AI创业先别迷信大客户",
+      "date": "2026-08-17",
+      "excerpt": "AI 创业公司的销售起点，不由大客户是否耀眼决定，而由买方承担多大风险、证明能否传播、客户是否已有预算共同决定；先找肯买的人，再用收入与反馈修正路线。",
+      "cover": "articles/2026-08-17-a16z-lighthouse-landgrab/cover.png",
+      "tags": ["AI", "创业", "销售策略", "a16z"]
+    },
+    {
       "slug": "2026-08-16-openclaw-agent-future",
       "title": "常驻 Agent 已经不是技术幻想，真正拦路的是成本、基础设施和控制权",
       "date": "2026-08-16",
